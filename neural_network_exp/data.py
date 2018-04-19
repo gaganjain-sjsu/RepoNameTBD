@@ -499,3 +499,22 @@ def get_cruve_readings(readings_file):
   # ============================================
 
   ########################################################################
+  
+  
+  def ratings_count():
+	ratings = 0;
+	fname = "Data/users.dat"
+	for line in open(fname):
+		docs = line.split()
+		count = float(docs.pop(0))
+		ratings += count
+	total_ratings_possible = float(5551 * 16980)
+	density_precentage =  float(ratings / total_ratings_possible)
+	sparsity_percentage = 1.0 - density_precentage
+	density_precentage *= 100
+	sparsity_percentage *= 100
+	
+	print('total ratings count = ', ratings)
+	print('total posible ratings  = ', total_ratings_possible)
+	print('Density % ', density_precentage)
+	print('Sparsity % ', sparsity_percentage)
